@@ -1,5 +1,5 @@
 package temp;
 
-public enum Drivers {
+public enum Driver {
     CHROME, FIREFOX
 }
