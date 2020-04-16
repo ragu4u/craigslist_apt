@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MyTestSuite">
+
+    <test name="TempTest">
+        <classes>
+            <class name="temp.HelloCraigslist" />
+        </classes>
+    </test>
+
+</suite>
