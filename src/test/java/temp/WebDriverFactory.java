@@ -4,8 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverFactory {
+    private static final String DRIVER_FOLDER = "C:/work/installations/selenium_drivers";
+
     static {
-        setDriverLocation(Driver.CHROME);
+        setDriverLocations();
     }
 
     public static WebDriver getDriver(Driver driverName) {
@@ -21,19 +23,9 @@ public class WebDriverFactory {
         return driver;
     }
 
-    private static void setDriverLocation(Driver driverName){
-        String driverProperty;
-        String driverPath = "C:/work/installations/selenium_drivers";
-
-        switch (driverName) {
-            case CHROME:
-                driverProperty = "webdriver.chrome.driver";
-                driverPath += "/chromedriver.exe";
-                break;
-            default:
-                throw new UnsupportedOperationException("The browser " + driverName + " is not supported.");
-        }
-        System.setProperty(driverProperty, driverPath);
+    private static void setDriverLocations(){
+        //Chrome.
+        System.setProperty("webdriver.chrome.driver", DRIVER_FOLDER + "/chromedriver.exe");
     }
 
 }
