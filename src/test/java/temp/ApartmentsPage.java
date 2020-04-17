@@ -17,4 +17,7 @@ public class ApartmentsPage {
         return StringUtils.getSubString(driver.getCurrentUrl(), "https://", ".craigslist");
     }
 
+    public ApartmentSearchOptions getSearchOptions() {
+        return new ApartmentSearchOptions(driver);
+    }
 }
