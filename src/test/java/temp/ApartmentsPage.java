@@ -12,4 +12,9 @@ public class ApartmentsPage {
     public boolean isOpen() {
         return driver.getCurrentUrl().endsWith("craigslist.org/search/apa");
     }
+
+    public String getRegion() {
+        return StringUtils.getSubString(driver.getCurrentUrl(), "https://", ".craigslist");
+    }
+
 }
