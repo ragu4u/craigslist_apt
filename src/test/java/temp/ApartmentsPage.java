@@ -9,5 +9,7 @@ public class ApartmentsPage {
         this.driver = driver;
     }
 
-
+    public boolean isOpen() {
+        return driver.getCurrentUrl().endsWith("craigslist.org/search/apa");
+    }
 }

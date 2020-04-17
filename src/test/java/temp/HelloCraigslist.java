@@ -1,6 +1,7 @@
 package temp;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class HelloCraigslist {
@@ -9,5 +10,6 @@ public class HelloCraigslist {
     @Test
     public void selectApartments(){
         ApartmentsPage apartmentsPage = new ApartmentsPage(driver);
+        Assert.assertTrue(apartmentsPage.isOpen());
     }
 }
