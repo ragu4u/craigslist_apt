@@ -50,8 +50,7 @@ public class ApartmentSearchOptions {
 
     public void displayHousingOptions() {
         WebElement housingBox = driver.findElement(By.cssSelector("div[data-attr=\"housing_type\"]"));
-        scrollElementIntoView(housingBox);
-        housingBox.click();
+        scrollElementIntoView(housingBox).click();
     }
 
     public void selectHousingTypes(HousingType...housingTypes) {
@@ -62,8 +61,7 @@ public class ApartmentSearchOptions {
 
     public void displayLaundryOptions() {
         WebElement laundryBox = driver.findElement(By.cssSelector("div[data-attr=\"laundry\"]"));
-        scrollElementIntoView(laundryBox);
-        laundryBox.click();
+        scrollElementIntoView(laundryBox).click();
     }
 
     public void selectLaundryOptions(LaundryOption...laundryOptions) {
@@ -72,9 +70,10 @@ public class ApartmentSearchOptions {
         }
     }
 
-    private void scrollElementIntoView(WebElement element){
+    private WebElement scrollElementIntoView(WebElement element){
         JavascriptExecutor jsDriver = (JavascriptExecutor) driver;
         jsDriver.executeScript("arguments[0].scrollIntoView(true);", element);
+        return element;
     }
 
     public void updateSearchFilters() {
