@@ -48,7 +48,20 @@ public class HelloCraigslist {
         Assert.assertTrue(apartmentsPage.isOpen());
         Assert.assertEquals(apartmentsPage.getRegion(), "sfbay");
 
+
         ApartmentSearchOptions aptOptions = new ApartmentSearchOptions();
+        aptOptions
+                .setTopOptions(HAS_IMAGE)
+                .setMilesFromZip(5, 94102)
+                .setPriceRange(1800, 2500)
+                .setBedrooms(1, 2)
+                .setBathrooms(1, 2)
+                .setAreaRange(700, 1200)
+                .setHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO)
+                .setLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
+
+        ApartmentSearchPane aptPane = apartmentsPage.getSearchOptions();
+        aptPane.applyOptions(aptOptions);
     }
 
 }

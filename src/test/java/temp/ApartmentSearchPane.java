@@ -80,6 +80,11 @@ public class ApartmentSearchPane {
         driver.findElement(By.xpath("//button[contains(. , 'update search')]")).click();
     }
 
+    public void applyOptions(ApartmentSearchOptions aptOptions) {
+        //Too many if else conditions to be put here to check which options should be applied.
+        //Think of a better design, before you even start implementing this.
+    }
+
     public enum TopOptions{
         HAS_IMAGE(By.name("hasPic"));
 
