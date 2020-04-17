@@ -77,6 +77,10 @@ public class ApartmentSearchOptions {
         jsDriver.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    public void updateSearchFilters() {
+        driver.findElement(By.xpath("//button[contains(. , 'update search')]")).click();
+    }
+
     public enum TopOptions{
         HAS_IMAGE(By.name("hasPic"));
 

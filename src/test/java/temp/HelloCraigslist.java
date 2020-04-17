@@ -38,6 +38,8 @@ public class HelloCraigslist {
 
         aptOptions.displayLaundryOptions();
         aptOptions.selectLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
+
+        aptOptions.updateSearchFilters();
     }
 
 }
