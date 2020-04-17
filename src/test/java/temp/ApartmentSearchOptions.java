@@ -46,6 +46,26 @@ public class ApartmentSearchOptions {
         driver.findElement(By.name("maxSqft")).sendKeys(max + "");
     }
 
+    public void displayHousingOptions() {
+        driver.findElement(By.cssSelector("div[data-attr=\"housing_type\"]")).click();
+    }
+
+    public void selectHousingTypes(HousingType...housingTypes) {
+        for(HousingType type : housingTypes){
+            driver.findElement(type.getLocator()).click();
+        }
+    }
+
+    public void displayLaundryOptions() {
+        driver.findElement(By.cssSelector("div[data-attr=\"laundry\"]")).click();
+    }
+
+    public void selectLaundryOptions(LaundryOption...laundryOptions) {
+        for(LaundryOption option : laundryOptions){
+            driver.findElement(option.getLocator()).click();
+        }
+    }
+
     public enum TopOptions{
         HAS_IMAGE(By.name("hasPic"));
 
@@ -59,6 +79,39 @@ public class ApartmentSearchOptions {
             return this.locator;
         }
 
+    }
+
+    public enum HousingType {
+        APARTMENT(By.id("housing_type_1")),
+        CONDO(By.id("housing_type_2")),
+        DUPLEX(By.id("housing_type_4")),
+        FLAT(By.id("housing_type_5")),
+        TOWN_HOUSE(By.id("housing_type_9"));
+
+        private By locator;
+
+        HousingType(By locator) {
+            this.locator = locator;
+        }
+
+        public By getLocator(){
+            return this.locator;
+        }
+    }
+
+    public enum LaundryOption {
+        WD_IN_UNIT(By.id("laundry_1")),
+        LAUNDRY_IN_BLDG(By.id("laundry_2")),
+        LAUNDRY_ON_SITE(By.id("laundry_3"));
+        private By locator;
+
+        LaundryOption(By locator) {
+            this.locator = locator;
+        }
+
+        public By getLocator(){
+            return this.locator;
+        }
     }
 
 }
