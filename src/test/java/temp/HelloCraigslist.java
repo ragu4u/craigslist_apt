@@ -36,10 +36,8 @@ public class HelloCraigslist {
 
         aptOptions.selectHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO);
 
-        /* Will be enabled after we fix issue in housing options.
         aptOptions.displayLaundryOptions();
         aptOptions.selectLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
-         */
     }
 
 }
