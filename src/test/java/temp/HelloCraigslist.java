@@ -34,11 +34,6 @@ public class HelloCraigslist {
 
         aptOptions.displayHousingOptions();
 
-        /* Bug in test -
-        * We get an error when we select the third option :
-        * org.openqa.selenium.ElementClickInterceptedException:
-        * element click intercepted: Element is not clickable at point (27, 785)
-        * */
         aptOptions.selectHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO);
 
         /* Will be enabled after we fix issue in housing options.
