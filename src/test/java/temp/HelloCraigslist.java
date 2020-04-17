@@ -5,9 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static temp.ApartmentSearchOptions.LaundryOption.*;
-import static temp.ApartmentSearchOptions.TopOptions.*;
-import static temp.ApartmentSearchOptions.HousingType.*;
+import static temp.ApartmentSearchPane.LaundryOption.*;
+import static temp.ApartmentSearchPane.TopOptions.*;
+import static temp.ApartmentSearchPane.HousingType.*;
 
 public class HelloCraigslist {
     private static WebDriver driver = WebDriverFactory.getDriver(Driver.CHROME);
@@ -23,23 +23,32 @@ public class HelloCraigslist {
         Assert.assertTrue(apartmentsPage.isOpen());
         Assert.assertEquals(apartmentsPage.getRegion(), "sfbay");
 
-        ApartmentSearchOptions aptOptions = apartmentsPage.getSearchOptions();
-        aptOptions.selectTopOption(HAS_IMAGE);
+        ApartmentSearchPane aptPane = apartmentsPage.getSearchOptions();
+        aptPane.selectTopOption(HAS_IMAGE);
 
-        aptOptions.enterMilesFromZip(5, 94102);
-        aptOptions.enterPrice(1800, 2500);
-        aptOptions.selectBedrooms(1, 2);
-        aptOptions.selectBathrooms(1, 2);
-        aptOptions.selectAreaSize(700, 1200);
+        aptPane.enterMilesFromZip(5, 94102);
+        aptPane.enterPrice(1800, 2500);
+        aptPane.selectBedrooms(1, 2);
+        aptPane.selectBathrooms(1, 2);
+        aptPane.selectAreaSize(700, 1200);
 
-        aptOptions.displayHousingOptions();
+        aptPane.displayHousingOptions();
 
-        aptOptions.selectHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO);
+        aptPane.selectHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO);
 
-        aptOptions.displayLaundryOptions();
-        aptOptions.selectLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
+        aptPane.displayLaundryOptions();
+        aptPane.selectLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
 
-        aptOptions.updateSearchFilters();
+        aptPane.updateSearchFilters();
+    }
+
+    @Test
+    public void browseFilteredApartmentListings(){
+        ApartmentsPage apartmentsPage = new ApartmentsPage(driver);
+        Assert.assertTrue(apartmentsPage.isOpen());
+        Assert.assertEquals(apartmentsPage.getRegion(), "sfbay");
+
+        ApartmentSearchOptions aptOptions = new ApartmentSearchOptions();
     }
 
 }
