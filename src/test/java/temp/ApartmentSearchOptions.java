@@ -49,27 +49,32 @@ public class ApartmentSearchOptions {
     }
 
     public void displayHousingOptions() {
-        driver.findElement(By.cssSelector("div[data-attr=\"housing_type\"]")).click();
+        WebElement housingBox = driver.findElement(By.cssSelector("div[data-attr=\"housing_type\"]"));
+        scrollElementIntoView(housingBox);
+        housingBox.click();
     }
 
     public void selectHousingTypes(HousingType...housingTypes) {
-        JavascriptExecutor jsDriver = (JavascriptExecutor) driver;
-
         for(HousingType type : housingTypes){
-            WebElement housingBox = driver.findElement(type.getLocator());
-            jsDriver.executeScript("arguments[0].scrollIntoView(true);", housingBox);
-            housingBox.click();
+            driver.findElement(type.getLocator()).click();
         }
     }
 
     public void displayLaundryOptions() {
-        driver.findElement(By.cssSelector("div[data-attr=\"laundry\"]")).click();
+        WebElement laundryBox = driver.findElement(By.cssSelector("div[data-attr=\"laundry\"]"));
+        scrollElementIntoView(laundryBox);
+        laundryBox.click();
     }
 
     public void selectLaundryOptions(LaundryOption...laundryOptions) {
         for(LaundryOption option : laundryOptions){
             driver.findElement(option.getLocator()).click();
         }
+    }
+
+    private void scrollElementIntoView(WebElement element){
+        JavascriptExecutor jsDriver = (JavascriptExecutor) driver;
+        jsDriver.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public enum TopOptions{
