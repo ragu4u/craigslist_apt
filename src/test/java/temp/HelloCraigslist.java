@@ -2,18 +2,18 @@ package temp;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static temp.ApartmentSearchPane.LaundryOption.*;
-import static temp.ApartmentSearchPane.TopOptions.*;
+import static temp.ApartmentSearchPane.TopOption.*;
 import static temp.ApartmentSearchPane.HousingType.*;
 
 public class HelloCraigslist {
     private static WebDriver driver = WebDriverFactory.getDriver(Driver.CHROME);
 
-    @BeforeClass
-    public void beforeClass(){
+    @BeforeMethod
+    public void beforeMethod(){
         driver.get("https://sfbay.craigslist.org/search/apa");
     }
 
@@ -23,7 +23,7 @@ public class HelloCraigslist {
         Assert.assertTrue(apartmentsPage.isOpen());
         Assert.assertEquals(apartmentsPage.getRegion(), "sfbay");
 
-        ApartmentSearchPane aptPane = apartmentsPage.getSearchOptions();
+        ApartmentSearchPane aptPane = apartmentsPage.getSearchPane();
         aptPane.selectTopOption(HAS_IMAGE);
 
         aptPane.enterMilesFromZip(5, 94102);
@@ -60,8 +60,8 @@ public class HelloCraigslist {
                 .setHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO)
                 .setLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
 
-        ApartmentSearchPane aptPane = apartmentsPage.getSearchOptions();
-        aptPane.applyOptions(aptOptions);
+        ApartmentSearchPane aptPane = apartmentsPage.getSearchPane();
+        aptPane.enterMultipleOptions(aptOptions);
     }
 
 }
