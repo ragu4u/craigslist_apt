@@ -1,15 +1,13 @@
-package temp;
+package pages;
 
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static temp.ApartmentSearchPane.*;
-
 @Getter
 public class ApartmentSearchOptions {
-    private List<TopOption> topOptions = new ArrayList<>();
+    private List<ApartmentSearchPane.TopOption> topOptions = new ArrayList<>();
 
     private Integer milesFromZip, referenceZipCode;
     private Integer minPrice, maxPrice;
@@ -17,12 +15,12 @@ public class ApartmentSearchOptions {
     private Integer minBathrooms, maxBathrooms;
     private Integer minArea, maxArea;
 
-    private List<HousingType> housingTypes = new ArrayList<>();
+    private List<ApartmentSearchPane.HousingType> housingTypes = new ArrayList<>();
 
-    private List<LaundryOption> laundryOptions = new ArrayList<>();
+    private List<ApartmentSearchPane.LaundryOption> laundryOptions = new ArrayList<>();
 
-    public ApartmentSearchOptions setTopOptions(TopOption...topOptions) {
-        for(TopOption tops : topOptions){
+    public ApartmentSearchOptions setTopOptions(ApartmentSearchPane.TopOption...topOptions) {
+        for(ApartmentSearchPane.TopOption tops : topOptions){
             this.topOptions.add(tops);
         }
         return this;
@@ -58,15 +56,15 @@ public class ApartmentSearchOptions {
         return this;
     }
 
-    public ApartmentSearchOptions setHousingTypes(HousingType...housingTypes) {
-        for(HousingType types : housingTypes){
+    public ApartmentSearchOptions setHousingTypes(ApartmentSearchPane.HousingType...housingTypes) {
+        for(ApartmentSearchPane.HousingType types : housingTypes){
             this.housingTypes.add(types);
         }
         return this;
     }
 
-    public ApartmentSearchOptions setLaundryOptions(LaundryOption...laundryOptions) {
-        for(LaundryOption option : laundryOptions){
+    public ApartmentSearchOptions setLaundryOptions(ApartmentSearchPane.LaundryOption...laundryOptions) {
+        for(ApartmentSearchPane.LaundryOption option : laundryOptions){
             this.laundryOptions.add(option);
         }
         return this;

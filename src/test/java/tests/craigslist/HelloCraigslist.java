@@ -1,13 +1,18 @@
-package temp;
+package tests.craigslist;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.ApartmentSearchOptions;
+import pages.ApartmentSearchPane;
+import pages.ApartmentsPage;
+import driver.Driver;
+import driver.WebDriverFactory;
 
-import static temp.ApartmentSearchPane.LaundryOption.*;
-import static temp.ApartmentSearchPane.TopOption.*;
-import static temp.ApartmentSearchPane.HousingType.*;
+import static pages.ApartmentSearchPane.HousingType.*;
+import static pages.ApartmentSearchPane.LaundryOption.*;
+import static pages.ApartmentSearchPane.TopOption.*;
 
 public class HelloCraigslist {
     private static WebDriver driver = WebDriverFactory.getDriver(Driver.CHROME);
