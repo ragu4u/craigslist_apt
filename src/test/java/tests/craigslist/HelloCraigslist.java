@@ -52,8 +52,11 @@ public class HelloCraigslist {
         ApartmentsPage apartmentsPage = new ApartmentsPage(driver);
         Assert.assertTrue(apartmentsPage.isOpen());
         Assert.assertEquals(apartmentsPage.getRegion(), "sfbay");
+        ApartmentSearchPane aptPane = apartmentsPage.getSearchPane();
+        aptPane.enterMultipleOptions(getDefaultApartmentSearchOptions());
+    }
 
-
+    private ApartmentSearchOptions getDefaultApartmentSearchOptions(){
         ApartmentSearchOptions aptOptions = new ApartmentSearchOptions();
         aptOptions
                 .setTopOptions(HAS_IMAGE)
@@ -64,9 +67,7 @@ public class HelloCraigslist {
                 .setAreaRange(700, 1200)
                 .setHousingTypes(APARTMENT, CONDO, DUPLEX, FLAT, CONDO)
                 .setLaundryOptions(WD_IN_UNIT, LAUNDRY_IN_BLDG, LAUNDRY_ON_SITE);
-
-        ApartmentSearchPane aptPane = apartmentsPage.getSearchPane();
-        aptPane.enterMultipleOptions(aptOptions);
+        return aptOptions;
     }
 
 }
