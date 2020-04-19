@@ -1,6 +1,7 @@
-package temp;
+package pages;
 
 import org.openqa.selenium.WebDriver;
+import utils.StringUtils;
 
 public class ApartmentsPage {
     private final WebDriver driver;
@@ -17,7 +18,7 @@ public class ApartmentsPage {
         return StringUtils.getSubString(driver.getCurrentUrl(), "https://", ".craigslist");
     }
 
-    public ApartmentSearchOptions getSearchOptions() {
-        return new ApartmentSearchOptions(driver);
+    public ApartmentSearchPane getSearchPane() {
+        return new ApartmentSearchPane(driver);
     }
 }

@@ -4,7 +4,7 @@
 
     <test name="TempTest">
         <classes>
-            <class name="temp.HelloCraigslist" />
+            <class name="tests.craigslist.HelloCraigslist" />
         </classes>
     </test>
 
