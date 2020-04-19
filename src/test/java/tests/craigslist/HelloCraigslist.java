@@ -54,6 +54,7 @@ public class HelloCraigslist {
         Assert.assertEquals(apartmentsPage.getRegion(), "sfbay");
         ApartmentSearchPane aptPane = apartmentsPage.getSearchPane();
         aptPane.enterMultipleOptions(getDefaultApartmentSearchOptions());
+        aptPane.updateSearchFilters();
     }
 
     private ApartmentSearchOptions getDefaultApartmentSearchOptions(){
@@ -61,7 +62,7 @@ public class HelloCraigslist {
         aptOptions
                 .setTopOptions(HAS_IMAGE)
                 .setMilesFromZip(5, 94102)
-                .setPriceRange(1800, 2500)
+                .setPriceRange(2000, 3500)
                 .setBedrooms(1, 2)
                 .setBathrooms(1, 2)
                 .setAreaRange(700, 1200)

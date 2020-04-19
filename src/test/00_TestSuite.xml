@@ -4,7 +4,11 @@
 
     <test name="TempTest">
         <classes>
-            <class name="tests.craigslist.HelloCraigslist" />
+            <class name="tests.craigslist.HelloCraigslist">
+                <methods>
+                    <include name="browseFilteredApartmentListings"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
