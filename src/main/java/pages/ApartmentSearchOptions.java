@@ -1,6 +1,7 @@
 package pages;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import static pages.ApartmentSearchPane.*;
 
 @Getter
+@Setter
 public class ApartmentSearchOptions {
     private List<TopOption> topOptions = new ArrayList<>();
 
